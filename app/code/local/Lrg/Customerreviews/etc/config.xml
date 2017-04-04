@@ -68,6 +68,17 @@
                 </customer_reviews_general_settings_email_template>
             </email>
         </template>
+        <events>
+            <send_reminders>
+                <observers>
+                    <customerreviews>
+                        <type>singleton</type>
+                        <class>customerreviews/observer</class>
+                        <method>sendReminderReview</method>
+                    </customerreviews>
+                </observers>
+            </send_reminders>
+        </events>
     </global>
     <admin>
 	<routers>
@@ -123,7 +134,7 @@
             </updates>
         </layout>
     </adminhtml>
-        <frontend>
+    <frontend>
         <events>
             <checkout_onepage_controller_success_action>
                 <observers>

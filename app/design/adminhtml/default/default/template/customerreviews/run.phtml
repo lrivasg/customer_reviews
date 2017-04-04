@@ -1,0 +1,13 @@
+<script type="text/javascript">
+    function sendreminders() {
+        var send = 1;
+        new Ajax.Request('<?php echo $this->getAjaxUrl() ?>', {
+            method: 'Post',
+            parameters: {send:send},
+            onComplete: function(transport) {
+
+           }
+        });
+    }
+</script>
+<?php echo $this->getButtonHtml() ?>
