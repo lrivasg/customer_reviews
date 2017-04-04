@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout version="1.0.0">
+	<customerreviews_index_index>
+		<reference name="content">
+			<block type="customerreviews/customerreviews" name="customerreviews" template="customerreviews/list.phtml" />
+		</reference>
+	</customerreviews_index_index>
+	<customerreviews_index_new>
+		<reference name="content">
+			<block type="customerreviews/customerreviews" name="customerreviews" template="customerreviews/newreview.phtml" />
+		</reference>
+	</customerreviews_index_new>
+</layout>

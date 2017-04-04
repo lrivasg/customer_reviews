@@ -1,0 +1,8 @@
+ <?xml version="1.0"?>
+<layout version="0.1.0">
+    <customerreviews_adminhtml_customerreviews_index>
+        <reference name="content">
+            <block type="customerreviews/adminhtml_customerreviews" name="customerreviews" />
+        </reference>
+    </customerreviews_adminhtml_customerreviews_index>
+</layout>
