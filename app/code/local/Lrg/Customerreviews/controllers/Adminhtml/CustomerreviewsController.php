@@ -1,5 +1,11 @@
 <?php
- 
+/**
+ * Customerreviews customerreviews controller
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 class Lrg_Customerreviews_Adminhtml_CustomerreviewsController extends Mage_Adminhtml_Controller_Action
 {
   

@@ -1,9 +1,11 @@
 <?php 
     $order_id = $this->getRequest()->getParam('order_id'); 
 ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Review'); ?></h1>
+</div>
 <form action="<?php echo $this->getUrl('customerreviews/index/post'); ?>" id="customerreviewsForm" class="customerreviewsForm" method="post" enctype="multipart/form-data">
     <div class="fieldset">
-        <h2 class="legend <?=$order_id?>"><?php echo $this->__('Review') ?></h2>
         <ul class="form-list">
             <li class="fields">
                 <div class="field">
@@ -73,3 +75,8 @@
         <button type="submit" title="<?php echo $this->__('Submit') ?>" class="button"><span><span><?php echo $this->__('Submit') ?></span></span></button>
     </div>
 </form>
+<script type="text/javascript">
+//<![CDATA[
+    var contactForm = new VarienForm('customerreviewsForm', true);
+//]]>
+</script>

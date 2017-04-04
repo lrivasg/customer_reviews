@@ -1,22 +1,18 @@
 <?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
+-->
 <config>
     <modules>
     	<Lrg_Customerreviews>
             <version>1.0.0</version>
     	</Lrg_Customerreviews>    
     </modules>
-    <frontend>        
-        <events>
-            <checkout_onepage_controller_success_action>
-                <observers>
-                    <customerreviews_save_reminderreview>
-                        <class>customerreviews/observer</class>
-                        <method>addReminderReview</method>
-                    </customerreviews_save_reminderreview>
-                </observers>
-            </checkout_onepage_controller_success_action>
-        </events>
-    </frontend>
     <global>
         <models>
             <customerreviews>
@@ -73,31 +69,13 @@
             </email>
         </template>
     </global>
-    <frontend>
-        <routers>
-            <customerreviews>
-                <use>standard</use>
-                <args>
-                    <module>Lrg_Customerreviews</module>
-                    <frontName>reviews</frontName>
-                </args>
-            </customerreviews>
-        </routers>
-        <layout>
-           <updates>
-               <customerreviews>
-                   <file>customerreviews.xml</file>
-               </customerreviews>
-           </updates>
-       </layout>
-    </frontend>
     <admin>
 	<routers>
 	  <customerreviews>
 	    <use>admin</use>
 		<args>
-		  <module>Lrg_Customerreviews</module>
-		  <frontName>customerreviews</frontName>
+                    <module>Lrg_Customerreviews</module>
+                    <frontName>customerreviews</frontName>
 		</args>
 	  </customerreviews>
 	</routers>
@@ -119,32 +97,60 @@
         <acl>
             <resources>
                 <all>
-                  <title>Allow Everything</title>
+                    <title>Allow Everything</title>
                 </all>
                 <admin>
                   <children>
                         <Lrg_Customerreviews>
-                          <title>Reviews</title>
-                          <sort_order>1000</sort_order>
-                          <children>
-                            <customerreviews translate="title">
-                                  <title>Manage Reviews</title>
-                                  <sort_order>0</sort_order>
-                            </customerreviews>
-                          </children>
+                            <title>Reviews</title>
+                            <sort_order>1000</sort_order>
+                            <children>
+                                <customerreviews translate="title">
+                                    <title>Manage Reviews</title>
+                                    <sort_order>0</sort_order>
+                                </customerreviews>
+                            </children>
                         </Lrg_Customerreviews>
                   </children>
                 </admin>
             </resources>
         </acl>
         <layout>
-	  <updates>
+            <updates>
                 <customerreviews>
-		  <file>customerreviews.xml</file>
-		</customerreviews>
-	  </updates>
-    </layout>
+                    <file>customerreviews.xml</file>
+                </customerreviews>
+            </updates>
+        </layout>
     </adminhtml>
+        <frontend>
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <customerreviews_save_reminderreview>
+                        <class>customerreviews/observer</class>
+                        <method>addReminderReview</method>
+                    </customerreviews_save_reminderreview>
+                </observers>
+            </checkout_onepage_controller_success_action>
+        </events>
+        <routers>
+            <customerreviews>
+                <use>standard</use>
+                <args>
+                    <module>Lrg_Customerreviews</module>
+                    <frontName>reviews</frontName>
+                </args>
+            </customerreviews>
+        </routers>
+        <layout>
+           <updates>
+               <customerreviews>
+                   <file>customerreviews.xml</file>
+               </customerreviews>
+           </updates>
+       </layout>
+    </frontend>
     <default>
         <customer_reviews>
             <general_settings>
@@ -159,7 +165,7 @@
         <jobs>
             <customerreviews>
                 <schedule>
-                    <cron_expr>* * * * *</cron_expr>
+                    <cron_expr>*/5 * * * *</cron_expr>
                 </schedule>
                 <run>
                     <model>customerreviews/observer::sendReminderReview</model>

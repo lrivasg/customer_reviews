@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Customerreviews block
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 class Lrg_Customerreviews_Block_Customerreviews extends Mage_Core_Block_Template 
 {
     protected $_reviewsCollection;

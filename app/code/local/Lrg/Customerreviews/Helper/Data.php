@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Customerreviews data helper
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 class Lrg_Customerreviews_Helper_Data extends Mage_Core_Helper_Abstract
 {
     const XML_PATH_EMAIL_TEMPLATE   = 'customer_reviews/general_settings/email_template';
@@ -16,11 +22,29 @@ class Lrg_Customerreviews_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return Mage::getStoreConfigFlag(self::XML_PATH_ACTIVE, $store);
     }
+    
     public function getConfDaysAfterOrder($store = null)
     {
         $days = Mage::getStoreConfig(self::XML_DAYS_AFTER_ORDER, $store);
         $days = $days*24*60*60;
-        return$days;
+        return $days;
+    }
+    
+    /**
+     * Check if review has been reviewed
+     *
+     */
+    public function isReviewed($orderId)
+    {
+        $collection = Mage::getModel('customerreviews/reviews')->getCollection()
+                ->addFieldToFilter('order_id', $orderId);
+        
+        if ($collection->count()) {
+            Mage::getSingleton('customer/session')->addError(Mage::helper('customerreviews')->__('Your purchase has already been reviewed!'));                   
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -28,12 +52,9 @@ class Lrg_Customerreviews_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function matchDaysAfterOrder($reminder)
     {
-      //  Mage::log('SENT AT '.strtotime($reminder->getSentAt()),null,'date.log',true);
-        //Mage::log('NOW '.strtotime(now()),null,'date.log',true);
-
          if (strtotime(now()) >= strtotime($reminder->getSentAt())) {
             return true;
-         } else {Mage::log('EMTRA ELSE',null,'date.log',true);
+         } else {
             return false;
          }
     }

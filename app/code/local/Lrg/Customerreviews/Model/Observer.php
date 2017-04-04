@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Customerreviews Observer
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas (lrivasg.8@gmail.com)
+ */
 class Lrg_Customerreviews_Model_Observer
 {
     
@@ -51,8 +57,6 @@ class Lrg_Customerreviews_Model_Observer
      */
     public function sendReminderReview(Mage_Cron_Model_Schedule $schedule)
     {
-        Mage::log('Entra en el CRON!', null, 'observercron.log',true);
-
         //get all records to send reminder
         $collection = Mage::getModel('customerreviews/reminders')->getCollection()
                 ->addFieldToFilter('reminder_status', 0);

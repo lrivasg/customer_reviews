@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 class Lrg_Customerreviews_Model_Adminhtml_System_Config_Source_Days
 {
     public function toOptionArray()

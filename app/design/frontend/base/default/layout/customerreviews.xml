@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout version="1.0.0">
-	<customerreviews_index_index>
-		<reference name="content">
-			<block type="customerreviews/customerreviews" name="customerreviews" template="customerreviews/list.phtml" />
-		</reference>
-	</customerreviews_index_index>
-	<customerreviews_index_new>
-		<reference name="content">
-			<block type="customerreviews/customerreviews" name="customerreviews" template="customerreviews/newreview.phtml" />
-		</reference>
-	</customerreviews_index_new>
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/lrg/customerreviews.css</name></action>
+        </reference>
+    </default>
+    <customerreviews_index_index>
+        <reference name="root">
+            <action method="setTemplate">
+              <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+            <reference name="content">
+                    <block type="customerreviews/customerreviews" name="customerreviews" template="customerreviews/list.phtml" />
+            </reference>
+    </customerreviews_index_index>
+    <customerreviews_index_new>
+            <reference name="content">
+                    <block type="customerreviews/customerreviews" name="customerreviews" template="customerreviews/newreview.phtml" />
+            </reference>
+    </customerreviews_index_new>
 </layout>

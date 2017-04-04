@@ -1,9 +1,16 @@
 <?php
+/**
+ * Customerreviews installer
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 
 $installer = $this;
 $installer->startSetup();
 
-    $table = $installer->getConnection()
+    $reviewstable = $installer->getConnection()
         ->newTable($installer->getTable('customerreviews/reviews'))
         ->addColumn('review_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
             'identity'  => true,
@@ -37,9 +44,9 @@ $installer->startSetup();
         ->addColumn('message', Varien_Db_Ddl_Table::TYPE_TEXT, null, array(
             'nullable' => false
         ),  'User comments');
-    $installer->getConnection()->createTable($table);
+    $installer->getConnection()->createTable($reviewstable);
 
-    $table2 = $installer->getConnection()
+    $reminderstable = $installer->getConnection()
         ->newTable($installer->getTable('customerreviews/reminders'))
         ->addColumn('reminder_id', Varien_Db_Ddl_Table::TYPE_INTEGER, null, array(
             'identity'  => true,
@@ -70,7 +77,7 @@ $installer->startSetup();
         ->addColumn('updated_at', Varien_Db_Ddl_Table::TYPE_TIMESTAMP, null, array(
         'default'   => NULL,
         ),  'Update Time');
-    $installer->getConnection()->createTable($table2);
+    $installer->getConnection()->createTable($reminderstable);
 
 $installer->endSetup();
 

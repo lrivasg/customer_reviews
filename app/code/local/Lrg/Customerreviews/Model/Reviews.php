@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Customerreviews reviews model
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 class Lrg_Customerreviews_Model_Reviews extends Mage_Core_Model_Abstract
 {
     const STATUS_APPROVED	= 1;

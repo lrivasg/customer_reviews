@@ -1,4 +1,12 @@
 <?xml version="1.0" ?>
+<!--
+/**
+ *
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
+-->
 <config>
     <tabs>
         <customer_reviews translate="label" module="customerreviews">

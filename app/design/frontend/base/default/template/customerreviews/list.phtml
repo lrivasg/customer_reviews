@@ -1,10 +1,13 @@
 <?php
     $reviews = $this->getReviewsCollection();
 ?>
-<h4><?php echo $this->__('Reviews') ?></h4>
+<div class="page-title">
+    <h1><?php echo $this->__('Reviews'); ?></h1>
+</div>
 <?php foreach ($reviews as $review): ?>                  
-    <div class="customer" >
-        <p><?php echo '&ldquo;'.$review->getMessage().'&rdquo;'; ?></p>
-        <div class="name"><?php   echo $review->getName(); ?></div>
+    <div class="review-customer">
+        <div class="review-customer-message"><p><?php echo '&ldquo;'.$review->getMessage().'&rdquo;'; ?></p></div>
+        
+        <div class="review-customer-name"><?php   echo $review->getName(); ?></div>
     </div>  
 <?php endforeach; ?> 

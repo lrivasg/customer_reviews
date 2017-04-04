@@ -1,5 +1,11 @@
 <?php
-  
+/**
+ * Customerreviews adminhtml block edit
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 class Lrg_Customerreviews_Block_Adminhtml_Customerreviews_Edit extends Mage_Adminhtml_Block_Widget_Form_Container
 {
     public function __construct()

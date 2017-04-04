@@ -1,4 +1,11 @@
 <?php
+/**
+ * Customerreviews adminhtml block grid
+ * 
+ * @category	Lrg 
+ * @package     Lrg_Customerreviews
+ * @author      Luis Rivas <lrivasg.8@gmail.com>
+ */
 class Lrg_Customerreviews_Block_Adminhtml_Customerreviews_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
     public function __construct()
