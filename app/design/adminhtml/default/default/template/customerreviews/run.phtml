@@ -5,9 +5,16 @@
             method: 'Post',
             parameters: {send:send},
             onComplete: function(transport) {
-
+                if ($('send_span').hasClassName('no-display')) {
+                    $('send_span').setStyle({
+                        'margin-left' : '10px', 
+                        'font-weight' : 'bold',
+                        'font-size'   : '12px'
+                    });
+                    $('send_span').removeClassName('no-display');
+                }
            }
         });
     }
 </script>
-<?php echo $this->getButtonHtml() ?>
+<?php echo $this->getButtonHtml() ?><span class="no-display" id="send_span"><?php echo $this->__('Reminders sent!')?></span>

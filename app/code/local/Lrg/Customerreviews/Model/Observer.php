@@ -49,7 +49,29 @@ class Lrg_Customerreviews_Model_Observer
             }
         }
     }
-    
+    public function sendReminderReviewNow($observer){
+        //get all records to send reminder now
+        $collection = Mage::getModel('customerreviews/reminders')->getCollection()
+                ->addFieldToFilter('reminder_status', 0);
+        
+        if ($collection->count() > 0) {
+            foreach ($collection as $reminder) {
+                $customerEmail = $reminder->getCustomerEmail();
+                $status = $reminder->getReminderStatus();            
+                
+                $reminderNow = true;
+                //send mail to customer
+                $isMailSent = Mage::Helper('customerreviews/data')->sendReminderReviewEmail($reminder, $reminderNow);
+                
+                //update reminder in data base
+                if ($isMailSent) {
+                    $reminder->setReminderStatus(1);
+                    $reminder->setUpdatedAt($timeStamp);
+                    $reminder->save();
+                }
+            }            
+        }
+    }
     /**
      * Cron job method
      *

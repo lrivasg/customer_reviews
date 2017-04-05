@@ -69,7 +69,7 @@
                             <show_in_store>1</show_in_store>
                         </sender_email_identity>
                         <run translate="label">
-                            <label>Send reminders now</label>
+                            <label>Send pending reminders</label>
                             <frontend_type>button</frontend_type>
                             <frontend_model>customerreviews/adminhtml_system_config_form_button</frontend_model>
                             <sort_order>20</sort_order>

@@ -58,7 +58,7 @@ class Lrg_Customerreviews_Helper_Data extends Mage_Core_Helper_Abstract
             return false;
          }
     }
-    public function sendReminderReviewEmail($reminder)
+    public function sendReminderReviewEmail($reminder, $remindernow = null)
     {
         //check is extension enabled
         if (!$this->isCustomerReviewsEnabled()) {

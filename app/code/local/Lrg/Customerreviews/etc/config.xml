@@ -74,7 +74,7 @@
                     <customerreviews>
                         <type>singleton</type>
                         <class>customerreviews/observer</class>
-                        <method>sendReminderReview</method>
+                        <method>sendReminderReviewNow</method>
                     </customerreviews>
                 </observers>
             </send_reminders>

@@ -17,7 +17,6 @@ class Lrg_Customerreviews_Block_Adminhtml_System_Config_Form_Button extends Mage
         $data = $this->getRequest()->getPost();
         if ($data['send']) {
             Mage::dispatchEvent('send_reminders');
-
         }
         
     }
@@ -31,7 +30,7 @@ class Lrg_Customerreviews_Block_Adminhtml_System_Config_Form_Button extends Mage
         $button = $this->getLayout()->createBlock('adminhtml/widget_button')
             ->setData(array(
                 'id'        => 'sendreminders_button',
-                'label'     => $this->helper('customerreviews')->__('Run now'),
+                'label'     => $this->helper('customerreviews')->__('Send now'),
                 'onclick'   => 'javascript:sendreminders(); return false;'
             ));
         return $button->toHtml();
